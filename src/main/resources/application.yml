@@ -1,0 +1,34 @@
+spring:
+  profiles:
+    active: local
+  group:
+    local: common
+    live: common
+
+---
+spring:
+  config:
+    activate:
+      on-profile: common
+  application:
+    name: make-order
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ENC(cGMB6+DhID3BCSC2t/qq/ni74NwRPN2/DTuy4oGlBrvmPWH4H/uJV5CZacRGwKwSdgP3GHnMqrmmTsjeNorRngj3VqvwuOW8I85/r9UUDeZhs3hTgTrJUovF3sX9DKnwcKv0U8eGn2Gzicghy5uiMg==)
+    username: ENC(BO7K+uxnWF7VASHk8EnQBg==)
+    password: ENC(gODsqBKdBceX3ye3XV6E+5ZZ7jNT2FSf)
+---
+spring:
+  config:
+    activate:
+      on-profile: live
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ENC(1yjYVr//BsK68vsGsOgtyMv63124qO1p0zESP9UDGY3e2Ko89q6yQRGT8gwLHnci1F/hSRAMyjyVtXXN/8GRE6dGl+SbX2H2mVScb9te+KDbZ22zxhYNxefQyfIXZLbPbvgzZJ40MaWayxefOfRPTF6z7qe39I01)
+    username: ENC(0qljv+W84YOGe48XhVGLJg==)
+    password: ENC(QqlGweuQKWMTOeocsSN1sxFAndkcohA/)
