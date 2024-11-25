@@ -1,9 +1,9 @@
 spring:
   profiles:
     active: local
-  group:
-    local: common
-    live: common
+    group:
+      local: common
+      live: common
 
 ---
 spring:
@@ -12,6 +12,15 @@ spring:
       on-profile: common
   application:
     name: make-order
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
 ---
 spring:
   config:
@@ -19,9 +28,18 @@ spring:
       on-profile: local
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: ENC(cGMB6+DhID3BCSC2t/qq/ni74NwRPN2/DTuy4oGlBrvmPWH4H/uJV5CZacRGwKwSdgP3GHnMqrmmTsjeNorRngj3VqvwuOW8I85/r9UUDeZhs3hTgTrJUovF3sX9DKnwcKv0U8eGn2Gzicghy5uiMg==)
+    url: ENC(gO0P/HMFayJzK0mK9+/Yf4Fu6ulzIuViwuTO2tCd/WeOFc9Spfz9Ms2uYGKurDHXVd8JJ9mtzbSG3UyyKKOocI06DR3YJEYo3DAwRpD7BiM++oxHtQ32tmdAkf39TLlBC0XDdvLstibpD+YP0uwiEyeV4d6Vhk2TQfKXQvWpeFT8JXHKT5Y8zEqC3L5QhLxEBc2+Zy3M6dk=)
     username: ENC(BO7K+uxnWF7VASHk8EnQBg==)
     password: ENC(gODsqBKdBceX3ye3XV6E+5ZZ7jNT2FSf)
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        highlight_sql: true
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.orm.jdbc.bind: trace
 ---
 spring:
   config:
