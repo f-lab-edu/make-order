@@ -20,6 +20,20 @@ public class JasyptEncryptorTest {
     void jasypt(){
         String string = "jdbc:mysql://localhost:3306/test";
 
+        String[] array = new String[] {
+                "jdbc:mysql://localhost:8802/MAKE_ORDER?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8?allowPublicKeyRetrieval=true&useSSL=false",
+                "root",
+                "ssafyssafy1!",
+                "jdbc:mysql://43.200.200.151:8802/MAKE_ORDER?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8",
+                "depark",
+                "ejddldieoqkr2!@"
+        };
+
+        for (int i = 0; i < array.length; i++) {
+            String encryptedString = jasyptEncrypt(array[i]);
+            System.out.println("encryptedString : " + encryptedString);
+        }
+
         String encryptedString = jasyptEncrypt(string);
         System.out.println("encryptedString : " + encryptedString);
 
