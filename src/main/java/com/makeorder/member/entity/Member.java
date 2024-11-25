@@ -17,7 +17,7 @@ public class Member extends BaseRegModDtEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "MEMBER_ID")
+    @Column(name = "MEMBER_ID", updatable = false)
     private Long memberId;
 
     @Column(name = "EMAIL")
