@@ -1,6 +1,9 @@
 package com.makeorder.member.controller;
 
 import com.makeorder.common.dto.BaseResponseBody;
+import com.makeorder.common.dto.DataResponse;
+import com.makeorder.member.dto.SigninRequest;
+import com.makeorder.member.dto.SigninResponse;
 import com.makeorder.member.dto.SignupRequest;
 import com.makeorder.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
@@ -22,5 +25,12 @@ public class MemberController {
         memberService.signup(signupRequest);
 
         return ResponseEntity.ok(BaseResponseBody.of(200, "Success"));
+    }
+
+    @PostMapping("/sign-in")
+    public ResponseEntity<DataResponse> signup(@RequestBody SigninRequest signinRequest) {
+        SigninResponse signinResponse = memberService.signin(signinRequest);
+
+        return ResponseEntity.ok(DataResponse.of(200, "Success", signinResponse));
     }
 }
