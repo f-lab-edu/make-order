@@ -3,12 +3,16 @@ package com.makeorder.order.entity;
 import com.makeorder.common.converter.YNToBooleanConverter;
 import com.makeorder.product.entity.Product;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "ORDER_ITEM")
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Getter
 public class OrderItem {
 

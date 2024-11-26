@@ -55,4 +55,8 @@ public class Product extends BaseRegModDtEntity {
     @Column(name = "DEL_YN")
     @Convert(converter = YNToBooleanConverter.class)
     private Boolean isDel;
+
+    public void subtractQuantity(Integer quantity) {
+        this.quantity -= quantity;
+    }
 }
