@@ -8,16 +8,14 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-public class ProductDetailsDto {
+public class ProductSimpleDto {
     private Long productId;
     private String categoryName;
     private String name;
-    private Integer quantity;
     private Integer price;
     private Boolean isFreeDelivery;
     private Integer deliveryFee;
     private BigDecimal score;
     private Long viewCnt;
     private LocalDateTime regDt;
-    private LocalDateTime modDt;
 }
