@@ -18,6 +18,7 @@ public enum ErrorCode {
 
     /* 404 NOT_FOUND : Resource를 찾을 수 없음 */
     MEMBER_NOT_FOUND(NOT_FOUND, "해당 유저의 정보를 찾을 수 없습니다."),
+    PRODUCT_NOT_FOUND(NOT_FOUND, "상품의 정보를 찾을 수 없습니다."),
 
     /* 409 CONFLICT : Resource의 현재 상태와 충돌. 보통 중복된 데이터 존재 */
     MEMBER_EMAIL_DUPLICATE(CONFLICT, "중복된 이메일 주소입니다."),
