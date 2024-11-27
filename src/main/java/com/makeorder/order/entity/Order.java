@@ -3,12 +3,16 @@ package com.makeorder.order.entity;
 import com.makeorder.common.entity.BaseRegModDtEntity;
 import com.makeorder.member.entity.Member;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "ORDERS")
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Getter
 public class Order extends BaseRegModDtEntity {
 

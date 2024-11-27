@@ -3,12 +3,16 @@ package com.makeorder.order.entity;
 import com.makeorder.order.converter.PaymentMethodTypeConverter;
 import com.makeorder.order.enums.PaymentMethodType;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "ORDER_EVENT_PAYMENT")
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Getter
 public class OrderEventPayment {
 

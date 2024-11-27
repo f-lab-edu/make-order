@@ -4,12 +4,16 @@ import com.makeorder.common.entity.BaseRegDtEntity;
 import com.makeorder.order.converter.OrderStatusTypeConverter;
 import com.makeorder.order.enums.OrderStatusType;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "ORDER_EVENT")
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Getter
 public class OrderEvent extends BaseRegDtEntity {
 
