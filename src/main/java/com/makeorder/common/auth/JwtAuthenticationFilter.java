@@ -2,7 +2,7 @@ package com.makeorder.common.auth;
 
 import com.makeorder.common.util.JwtUtil;
 import com.makeorder.member.dto.MemberDetails;
-import com.makeorder.member.entity.Member;
+import com.makeorder.core.member.entity.Member;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

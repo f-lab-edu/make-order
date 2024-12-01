@@ -2,9 +2,9 @@ package com.makeorder.member.service;
 
 import com.makeorder.exception.CustomException;
 import com.makeorder.exception.ErrorCode;
-import com.makeorder.member.MemberRepository;
+import com.makeorder.core.member.repository.MemberRepository;
 import com.makeorder.member.dto.MemberDetails;
-import com.makeorder.member.entity.Member;
+import com.makeorder.core.member.entity.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -2,7 +2,7 @@ package com.makeorder.review.entity;
 
 import com.makeorder.common.converter.YNToBooleanConverter;
 import com.makeorder.common.entity.BaseRegModDtEntity;
-import com.makeorder.member.entity.Member;
+import com.makeorder.core.member.entity.Member;
 import com.makeorder.product.entity.Product;
 import jakarta.persistence.*;
 import lombok.Getter;
