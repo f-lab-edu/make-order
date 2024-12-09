@@ -6,7 +6,7 @@ import com.makeorder.product.dto.ProductDetailsDto;
 import com.makeorder.product.dto.ProductSearchRequest;
 import com.makeorder.product.dto.ProductSearchResponse;
 import com.makeorder.product.dto.ProductSimpleDto;
-import com.makeorder.product.repository.ProductRepository;
+import com.makeorder.core.product.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

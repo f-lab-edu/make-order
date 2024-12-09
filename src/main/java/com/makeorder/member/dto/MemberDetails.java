@@ -1,6 +1,6 @@
 package com.makeorder.member.dto;
 
-import com.makeorder.member.entity.Member;
+import com.makeorder.core.member.entity.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
