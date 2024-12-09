@@ -9,7 +9,6 @@ import com.makeorder.core.order.entity.OrderEvent;
 import com.makeorder.core.order.entity.OrderItem;
 import com.makeorder.core.order.entity.enums.OrderStatusType;
 import com.makeorder.core.order.service.OrderEventCommandService;
-import com.makeorder.core.order.service.OrderEventFindService;
 import com.makeorder.core.order.service.OrderFindService;
 import com.makeorder.core.order.service.OrderItemFindService;
 import com.makeorder.core.payment.service.PaymentCommandService;
@@ -41,7 +40,7 @@ public class PaymentService {
 
     public void pay(PaymentRequest paymentRequest) {
         // 회원 조회
-        Optional<Member> memberOptional = memberFindService.findMember(MemberAuthenticationUtil.getLoginMemberId());
+        Member member = memberFindService.findById(MemberAuthenticationUtil.getLoginMemberId());
 
         // 주문 확인
         Optional<Order> orderOptional = orderFindService.findOrder(paymentRequest.getOrderId());
@@ -55,7 +54,7 @@ public class PaymentService {
                 .map(item -> item.getProduct().getProductId())
                 .toList();
         List<Product> products = productFindService.findAllById(productIds);
-        paymentValidator.validate(memberOptional, orderOptional, orderItems, products, paymentRequest.getPaymentPrice());
+        paymentValidator.validate(member, orderOptional, orderItems, products, paymentRequest.getPaymentPrice());
 
         // 재고 감소
         products.forEach(product -> product.subtractQuantity(orderItemMap.get(product.getProductId()).getQuantity()));

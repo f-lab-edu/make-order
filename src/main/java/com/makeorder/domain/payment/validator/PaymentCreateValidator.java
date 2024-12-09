@@ -27,8 +27,7 @@ public class PaymentCreateValidator {
     private final OrderEventCommandService orderEventCommandService;
     private final OrderEventFindService orderEventFindService;
 
-    public void validate(Optional<Member> memberOptional, Optional<Order> orderOptional, List<OrderItem> orderItems, List<Product> products, Integer paymentPrice) {
-        Member member = memberOptional.orElseThrow(() -> new CustomException(ErrorCode.MEMBER_NOT_FOUND));
+    public void validate(Member member, Optional<Order> orderOptional, List<OrderItem> orderItems, List<Product> products, Integer paymentPrice) {
         Order order = orderOptional.orElseThrow(() -> new CustomException(ErrorCode.ORDER_NOT_FOUND));
 
         // 결제 완료된 주문인지 확인
@@ -52,10 +51,14 @@ public class PaymentCreateValidator {
         Map<Long, Product> productMap = products.stream()
                 .collect(Collectors.toMap(Product::getProductId, Function.identity()));
         orderItems.forEach(orderItem -> {
-            if (orderItem.getQuantity() > productMap.get(orderItem.getProduct().getProductId()).getQuantity()
-                    || productMap.get(orderItem.getProduct().getProductId()).getQuantity() <= 0) {
+            if (isNotValidStock(orderItem, productMap)) {
                 throw new CustomException(ErrorCode.PRODUCT_OUT_OF_STOCK);
             }
         });
+    }
+
+    private boolean isNotValidStock(OrderItem orderItem, Map<Long, Product> productMap) {
+        return orderItem.getQuantity() > productMap.get(orderItem.getProduct().getProductId()).getQuantity()
+                || productMap.get(orderItem.getProduct().getProductId()).getQuantity() <= 0;
     }
 }
