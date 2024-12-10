@@ -10,7 +10,6 @@ import com.makeorder.core.order.entity.OrderItem;
 import com.makeorder.core.order.entity.enums.OrderStatusType;
 import com.makeorder.core.order.service.OrderEventCommandService;
 import com.makeorder.core.order.service.OrderFindService;
-import com.makeorder.core.order.service.OrderItemFindService;
 import com.makeorder.core.payment.service.PaymentCommandService;
 import com.makeorder.core.product.service.ProductFindService;
 import com.makeorder.domain.payment.validator.PaymentCreateValidator;
@@ -34,7 +33,6 @@ public class PaymentService {
     private final MemberFindService memberFindService;
     private final OrderFindService orderFindService;
     private final OrderEventCommandService orderEventCommandService;
-    private final OrderItemFindService orderItemFindService;
     private final ProductFindService productFindService;
     private final PaymentCreateValidator paymentValidator;
 
@@ -47,7 +45,7 @@ public class PaymentService {
 
         // 검증
         Order order = orderOptional.get();
-        List<OrderItem> orderItems = orderItemFindService.findOrderItemByOrder(order);
+        List<OrderItem> orderItems = order.getOrderItemList();
         Map<Long, OrderItem> orderItemMap = orderItems.stream()
                 .collect(Collectors.toMap(item -> item.getProduct().getProductId(), Function.identity()));
         List<Long> productIds = orderItems.stream()

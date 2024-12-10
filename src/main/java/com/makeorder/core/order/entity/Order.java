@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Table(name = "ORDERS")
 @NoArgsConstructor
@@ -24,6 +26,12 @@ public class Order extends BaseRegModDtEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
+
+    @OneToMany(mappedBy = "order")
+    private List<OrderItem> orderItemList;
+
+    @OneToMany(mappedBy = "order")
+    private List<OrderEvent> orderEventList;
 
     @Column(name = "RCPNT_NAME")
     private String rcpntName;
